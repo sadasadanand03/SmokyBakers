@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.nenoproject.smokybakers.RecipeActivity">
+
+    <Button
+        android:id="@+id/btnGetIngradiants"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Required Ingradiants"
+        android:background="@drawable/button_style"
+        android:layout_margin="5dp"
+        android:textAllCaps="false" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvRecipeActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

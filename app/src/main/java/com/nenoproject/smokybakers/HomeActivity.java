@@ -21,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.nenoproject.smokybakers.pojo.Ingredient;
 import com.nenoproject.smokybakers.pojo.RecipeDetails;
 import com.nenoproject.smokybakers.pojo.Step;
 
@@ -62,6 +63,12 @@ public class HomeActivity extends AppCompatActivity {
                     {
                         String name =  response.body().get(i).getName();
                         arrayListFoodItem.add(name);
+                      /*  List<Ingredient> recipeIngredient = response.body().get(i).getIngredients();
+                        for(int j =0 ;j<recipeIngredient.size();j++)
+                        {
+                           Float quantity = recipeIngredient.get(j).getQuantity();
+                        }
+*/
                     }
                     RecyclerAdapter aa = new RecyclerAdapter(HomeActivity.this,R.layout.card_item,arrayListFoodItem,image);
                     RecyclerView.LayoutManager mlayoutManager = new LinearLayoutManager(HomeActivity.this);
