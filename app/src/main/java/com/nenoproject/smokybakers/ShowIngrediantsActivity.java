@@ -31,7 +31,10 @@ public class ShowIngrediantsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_show_ingrediants);
+
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         rvShowIngrediants = (RecyclerView) findViewById(R.id.rvShowIngrediants);
         arrayListIngrediants = new ArrayList<>();

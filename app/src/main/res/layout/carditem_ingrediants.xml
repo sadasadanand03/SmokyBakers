@@ -8,9 +8,10 @@
     app:cardCornerRadius="3dp">
 
     <LinearLayout
+        android:background="@drawable/button_style"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#5d22fd"
         android:orientation="vertical">
 
         <LinearLayout
@@ -33,7 +34,7 @@
                 android:layout_weight="1"
                 android:text="..........."
                 android:textColor="#ffffff"
-                android:textSize="15sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -58,7 +59,7 @@
 
                 android:text="..........."
                 android:textColor="#ffffff"
-                android:textSize="15sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
