@@ -21,9 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RecipeActivity"
-            android:exported="true"/>
-        <activity android:name=".ShowIngrediantsActivity"></activity>
+        <activity
+            android:name=".RecipeActivity"
+            android:exported="true" />
+        <activity android:name=".ShowIngrediantsActivity" />
+        <activity android:name=".PlayVideoActivity"></activity>
     </application>
 
 </manifest>

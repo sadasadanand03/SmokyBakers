@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.nenoproject.smokybakers.pojo.Ingredient;
@@ -27,6 +28,8 @@ public class ShowIngrediantsActivity extends AppCompatActivity {
     String BASE_URL = "https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/";
     RecyclerView rvShowIngrediants;
     ArrayList<IngredientPojo>  arrayListIngrediants;
+    ImageView iv_show;
+   public static int images[]={R.drawable.nutella_pie,R.drawable.brownies1,R.drawable.yellow_cake,R.drawable.cheesecake};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,7 @@ public class ShowIngrediantsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         rvShowIngrediants = (RecyclerView) findViewById(R.id.rvShowIngrediants);
+        iv_show= (ImageView) findViewById(R.id.iv_show);
         arrayListIngrediants = new ArrayList<>();
 
 
@@ -46,6 +50,9 @@ public class ShowIngrediantsActivity extends AppCompatActivity {
         position = b.getInt("position");
         // Toast.makeText(this, "position is "+position+"food item is "+name, Toast.LENGTH_SHORT).show();
         setTitle(name);
+
+        iv_show.setImageResource(images[position]);
+
 
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();

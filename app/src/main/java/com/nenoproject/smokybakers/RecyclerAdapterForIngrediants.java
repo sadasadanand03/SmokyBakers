@@ -54,7 +54,7 @@ public class RecyclerAdapterForIngrediants extends RecyclerView.Adapter<Recycler
 
     @Override
     public void onBindViewHolder(RecyclerAdapterForIngrediants.MyViewHolder holder, final int position) {
-        holder.tvQuantity.setText(""+arrayListIngredients.get(position).getQuantity());
+        holder.tvQuantity.setText(""+arrayListIngredients.get(position).getQuantity()+" ");
         holder.tvMeasure.setText(arrayListIngredients.get(position).getMeasure());
         holder.tvIngredient.setText(arrayListIngredients.get(position).getIngredient());
     }

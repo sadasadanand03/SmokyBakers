@@ -31,7 +31,7 @@ public class RecipeActivity extends AppCompatActivity {
     int position;
     Button btnShowIngrediant;
     String name;
-    ArrayList<StepsPojo> arrayListSteps;
+    public static ArrayList<StepsPojo> arrayListSteps;
 
 
     @Override
@@ -75,12 +75,26 @@ public class RecipeActivity extends AppCompatActivity {
                 }
 
                 //TODO (add recycle view here to show r)
-                Toast.makeText(RecipeActivity.this, ""+arrayListSteps.get(1).getShortDescription(), Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(RecipeActivity.this, ""+arrayListSteps.get(1).getShortDescription(), Toast.LENGTH_SHORT).show();
                 RecyclerAdapterForSteps aa = new RecyclerAdapterForSteps(RecipeActivity.this,R.layout.carditem_steps,arrayListSteps);
                 RecyclerView.LayoutManager mlayoutManager = new LinearLayoutManager(RecipeActivity.this);
                 rvRecipeActivity.setLayoutManager(mlayoutManager);
                 rvRecipeActivity.setAdapter(aa);
-                Toast.makeText(RecipeActivity.this, "sada", Toast.LENGTH_SHORT).show();
+                rvRecipeActivity.addOnItemTouchListener(new OnRecyclerItemClickListener(RecipeActivity.this, new OnRecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        // TODO Auto-generated method stub
+
+                       // Toast.makeText(RecipeActivity.this, ""+arrayListSteps.get(position).getVideoURL(), Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(RecipeActivity.this, PlayVideoActivity.class);
+                            i.putExtra("position", position);
+                            Log.e("", "" + arrayListSteps.get(position).getVideoURL());
+                            startActivity(i);
+
+
+                    }
+                }));
+               // Toast.makeText(RecipeActivity.this, "sada", Toast.LENGTH_SHORT).show();
 
 
             }
