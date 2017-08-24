@@ -10,13 +10,14 @@ import android.view.View;
  * Created by maheshs on 8/10/2017.
  */
 
-public class OnRecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
+@SuppressWarnings("ALL")
+class OnRecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
 
-    GestureDetector gestureDetector;
-    OnItemClickListener listener;
+    private final GestureDetector gestureDetector;
+    private final OnItemClickListener listener;
 
     public interface OnItemClickListener {
-        public void onItemClick(View view, int position);
+         void onItemClick(View view, int position);
     }
 
     public OnRecyclerItemClickListener(Context context, OnItemClickListener listener) {
@@ -34,7 +35,7 @@ public class OnRecyclerItemClickListener implements RecyclerView.OnItemTouchList
     public boolean onInterceptTouchEvent(RecyclerView view, MotionEvent e) {
         View childView = view.findChildViewUnder(e.getX(), e.getY());
         if(childView != null && listener != null && gestureDetector.onTouchEvent(e)) {
-            ((OnItemClickListener) listener).onItemClick(childView, view.getChildAdapterPosition(childView));
+            listener.onItemClick(childView, view.getChildAdapterPosition(childView));
         }
 
         return false;

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.nenoproject.smokybakers.RecipeActivity">
+
+  <FrameLayout
+      android:layout_width="300dp"
+      android:layout_height="match_parent">
+      <android.support.v7.widget.RecyclerView
+          android:id="@+id/rvRecipeActivity"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="#b4b5b6" />
+  </FrameLayout>
+    <LinearLayout
+        android:orientation="vertical"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.devbrackets.android.exomedia.ui.widget.VideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:useDefaultControls="true"
+            tools:ignore="InconsistentLayout" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:padding="8dp"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tvDescribe"
+            tools:ignore="InconsistentLayout" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

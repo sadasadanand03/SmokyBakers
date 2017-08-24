@@ -1,19 +1,12 @@
 package com.nenoproject.smokybakers;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.nenoproject.smokybakers.pojo.IngredientPojo;
 
 import java.util.ArrayList;
@@ -22,20 +15,22 @@ import java.util.ArrayList;
  * Created by sadanandk on 8/8/2017.
  */
 
+@SuppressWarnings("ALL")
 public class RecyclerAdapterForIngrediants extends RecyclerView.Adapter<RecyclerAdapterForIngrediants.MyViewHolder> {
 
-    Context context;
-    int carditem_ingrediants;
-    ArrayList<IngredientPojo> arrayListIngredients;
-    public RecyclerAdapterForIngrediants(Context context, int carditem_ingrediants, ArrayList<IngredientPojo> arrayListIngredients) {
-        this.context = context;
-        this.carditem_ingrediants = carditem_ingrediants;
+    private final int carditem_ingrediants;
+    private final ArrayList<IngredientPojo> arrayListIngredients;
+    public RecyclerAdapterForIngrediants(Context context, ArrayList<IngredientPojo> arrayListIngredients) {
+        Context context1 = context;
+        this.carditem_ingrediants = R.layout.carditem_ingrediants;
        this.arrayListIngredients = arrayListIngredients;
     }
 
     class  MyViewHolder extends RecyclerView.ViewHolder
     {
-        TextView tvQuantity,tvMeasure,tvIngredient;
+        final TextView tvQuantity;
+        final TextView tvMeasure;
+        final TextView tvIngredient;
 
         public MyViewHolder(View itemView) {
             super(itemView);

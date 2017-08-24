@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.nenoproject.smokybakers.RecipeActivity">
 
-    <Button
+   <!-- <Button
         android:id="@+id/btnGetIngradiants"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Required Ingradiants"
-        android:background="@drawable/button_style"
-        android:textColor="#fff"
-        android:textSize="20sp"
+        android:layout_height="80dp"
         android:layout_margin="5dp"
-        android:textAllCaps="false" />
+        android:text="Required Ingradiants"
+        android:textAllCaps="false"
+        android:textColor="#000"
+        android:background="#b4b5b6"
+        android:textSize="20sp" />-->
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvRecipeActivity"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#b4b5b6" />
 </LinearLayout>

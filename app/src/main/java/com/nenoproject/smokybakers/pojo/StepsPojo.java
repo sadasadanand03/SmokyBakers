@@ -4,9 +4,12 @@ package com.nenoproject.smokybakers.pojo;
  * Created by sadanandk on 8/9/2017.
  */
 
+@SuppressWarnings("ALL")
 public class StepsPojo {
 
-    String shortDescription,description,videoURL;
+    private String shortDescription;
+    private String description;
+    private String videoURL;
 
     public StepsPojo(String shortDescription, String description, String videoURL) {
         this.shortDescription = shortDescription;
@@ -17,24 +20,11 @@ public class StepsPojo {
     public String getShortDescription() {
         return shortDescription;
     }
-
-    public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
-    }
-
     public String getDescription() {
         return description;
     }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getVideoURL() {
         return videoURL;
     }
 
-    public void setVideoURL(String videoURL) {
-        this.videoURL = videoURL;
-    }
 }

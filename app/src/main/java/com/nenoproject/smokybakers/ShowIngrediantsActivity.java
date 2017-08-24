@@ -23,13 +23,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ShowIngrediantsActivity extends AppCompatActivity {
-    String name;
-    int position;
-    String BASE_URL = "https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/";
-    RecyclerView rvShowIngrediants;
-    ArrayList<IngredientPojo>  arrayListIngrediants;
-    ImageView iv_show;
-   public static int images[]={R.drawable.nutella_pie,R.drawable.brownies1,R.drawable.yellow_cake,R.drawable.cheesecake};
+    private int position;
+    private RecyclerView rvShowIngrediants;
+    private ArrayList<IngredientPojo>  arrayListIngrediants;
+    private static final int[] images={R.drawable.nutella_pie,R.drawable.brownies1,R.drawable.yellow_cake,R.drawable.cheesecake};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +37,13 @@ public class ShowIngrediantsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         rvShowIngrediants = (RecyclerView) findViewById(R.id.rvShowIngrediants);
-        iv_show= (ImageView) findViewById(R.id.iv_show);
+        ImageView iv_show = (ImageView) findViewById(R.id.iv_show);
         arrayListIngrediants = new ArrayList<>();
 
 
         Intent i = getIntent();
         Bundle b = i.getExtras();
-        name  = b.getString("foodItem");
+        String name = b.getString("foodItem");
         position = b.getInt("position");
         // Toast.makeText(this, "position is "+position+"food item is "+name, Toast.LENGTH_SHORT).show();
         setTitle(name);
@@ -54,7 +51,7 @@ public class ShowIngrediantsActivity extends AppCompatActivity {
         iv_show.setImageResource(images[position]);
 
 
-
+        String BASE_URL = "https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/";
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
         retrofit.create(AppConfig.class).getRecipeDetails().enqueue(new Callback<List<RecipeDetails>>() {
             @Override
@@ -71,7 +68,7 @@ public class ShowIngrediantsActivity extends AppCompatActivity {
                     arrayListIngrediants.add(ip);
                    // Toast.makeText(ShowIngrediantsActivity.this, "  Quantity  => "+quantity+"   Measure  =>"+measure+"     Ingredient  =>"+ingredient, Toast.LENGTH_SHORT).show();
                 }
-                RecyclerAdapterForIngrediants aa = new RecyclerAdapterForIngrediants(ShowIngrediantsActivity.this,R.layout.carditem_ingrediants,arrayListIngrediants);
+                RecyclerAdapterForIngrediants aa = new RecyclerAdapterForIngrediants(ShowIngrediantsActivity.this, arrayListIngrediants);
                 RecyclerView.LayoutManager mlayoutManager = new LinearLayoutManager(ShowIngrediantsActivity.this);
                 rvShowIngrediants.setLayoutManager(mlayoutManager);
                 rvShowIngrediants.setAdapter(aa);

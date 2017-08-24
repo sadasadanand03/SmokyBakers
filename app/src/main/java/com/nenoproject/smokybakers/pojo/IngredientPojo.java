@@ -4,16 +4,13 @@ package com.nenoproject.smokybakers.pojo;
  * Created by sadanandk on 8/8/2017.
  */
 
+@SuppressWarnings("ALL")
 public class IngredientPojo {
     private String measure, ingredient;
     private float quantity;
 
     public String getMeasure() {
         return measure;
-    }
-
-    public void setMeasure(String measure) {
-        this.measure = measure;
     }
 
     public String getIngredient() {

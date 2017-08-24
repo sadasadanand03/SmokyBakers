@@ -18,41 +18,60 @@ import java.util.ArrayList;
 public class PlayVideoActivity extends AppCompatActivity implements OnPreparedListener{
     private String url;
     private VideoView videoView;
-    TextView tvDescribe;
-    ImageView next,prev;
-     ArrayList<StepsPojo> arrayListSteps;
-     int position;
+    private TextView tvDescribe;
+    private ImageView next;
+    private ImageView prev;
+     private ArrayList<StepsPojo> arrayListSteps;
+     private int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_video);
-
-        Intent i = getIntent();
-        Bundle b = i.getExtras();
-        position = b.getInt("position");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         arrayListSteps  = RecipeActivity.arrayListSteps;
         videoView = (VideoView)findViewById(R.id.video_view);
         next = (ImageView) findViewById(R.id.next);
         prev = (ImageView) findViewById(R.id.prev);
         tvDescribe = (TextView) findViewById(R.id.tvDescribe);
-        if(position==0)
-        {
-            prev.setVisibility(View.GONE);
-        }
-        if (arrayListSteps.get(position).getVideoURL().equals("")){
-            videoView.setVisibility(View.GONE);
-            Toast.makeText(this, "No video available.", Toast.LENGTH_SHORT).show();
-
-        }
-
 
         videoView.setOnPreparedListener(this);
 
-        //For now we just picked an arbitrary item to play
-        videoView.setVideoURI(Uri.parse(arrayListSteps.get(position).getVideoURL()));
-        tvDescribe.setText(arrayListSteps.get(position).getDescription());
+        //For checking that screen orientation.
+        if(savedInstanceState==null)
+        {
+            Intent i = getIntent();
+            Bundle b = i.getExtras();
+            position = b.getInt("position");
+            if(position==0)
+            {
+                prev.setVisibility(View.GONE);
+            }
+            if (arrayListSteps.get(position).getVideoURL().equals("")){
+                videoView.setVisibility(View.GONE);
+                Toast.makeText(this, "No video available.", Toast.LENGTH_SHORT).show();
+
+            }
+            videoView.setVideoURI(Uri.parse(arrayListSteps.get(position).getVideoURL()));
+            tvDescribe.setText(arrayListSteps.get(position).getDescription());
+        }
+        else
+        {
+            position = savedInstanceState.getInt("position");
+            if(position==0)
+            {
+                prev.setVisibility(View.GONE);
+            }
+            if (arrayListSteps.get(position).getVideoURL().equals("")){
+                videoView.setVisibility(View.GONE);
+                Toast.makeText(this, "No video available.", Toast.LENGTH_SHORT).show();
+
+            }
+            videoView.setVideoURI(Uri.parse(arrayListSteps.get(position).getVideoURL()));
+            tvDescribe.setText(arrayListSteps.get(position).getDescription());
+        }
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,5 +146,27 @@ public class PlayVideoActivity extends AppCompatActivity implements OnPreparedLi
     public void onPrepared() {
         //Starts the video playback as soon as it is ready
         videoView.start();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putLong("current_position",videoView.getCurrentPosition());
+        outState.putInt("position",position);
+    }
+
+
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        //we use onRestoreInstanceState in order to play the video playback from the stored position
+        videoView.seekTo(savedInstanceState.getLong("current_position"));
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return super.onSupportNavigateUp();
     }
 }

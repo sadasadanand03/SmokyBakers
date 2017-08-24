@@ -9,14 +9,15 @@
 
     <com.devbrackets.android.exomedia.ui.widget.VideoView
         android:id="@+id/video_view"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:useDefaultControls="true" />
 
     <TextView
         android:layout_marginTop="10dp"
         android:padding="8dp"
         android:textSize="18sp"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvDescribe"/>
@@ -26,26 +27,25 @@
         android:layout_height="match_parent">
 
    <ImageView
-
+        android:contentDescription="play previous recipe video"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:contentDescription="it play previous recipe Video"
        android:id="@+id/prev"
+       android:visibility="gone"
        android:src="@drawable/prev"
        android:layout_alignParentBottom="true"
        android:layout_alignParentLeft="true"
-       android:layout_alignParentStart="true"
-       tools:ignore="HardcodedText" />
+       android:layout_alignParentStart="true" />
         <ImageView
+            android:contentDescription="play next recipe video"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="it play next recipe Video"
             android:id="@+id/next"
+            android:visibility="gone"
             android:src="@drawable/next"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            tools:ignore="HardcodedText" />
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
 </LinearLayout>
