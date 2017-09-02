@@ -53,12 +53,6 @@ public class HomeActivity extends AppCompatActivity
                     {
                         String name =  response.body().get(i).getName();
                         arrayListFoodItem.add(name);
-                      /*  List<Ingredient> recipeIngredient = response.body().get(i).getIngredients();
-                        for(int j =0 ;j<recipeIngredient.size();j++)
-                        {
-                           Float quantity = recipeIngredient.get(j).getQuantity();
-                        }
-*/
                     }
                     if(isTablet(HomeActivity.this))
                     {
@@ -68,7 +62,6 @@ public class HomeActivity extends AppCompatActivity
 
 
                         lvFoodItem.setLayoutManager(mlayoutManager);
-                        //  rv.setLayoutManager(HomeActivity.mlayoutManager);
                         lvFoodItem.setAdapter(rd);
                     }
                     else
@@ -76,34 +69,8 @@ public class HomeActivity extends AppCompatActivity
                         RecyclerAdapter aa = new RecyclerAdapter(HomeActivity.this, arrayListFoodItem,image);
                         RecyclerView.LayoutManager mlayoutManager = new LinearLayoutManager(HomeActivity.this);
                         lvFoodItem.setLayoutManager(mlayoutManager);
-                        /*
-                          this code for click listener for recycler view.
-                          OnRecyclerItemClickListener is a class with a interface .
-                         */
-
-                    /*lvFoodItem.addOnItemTouchListener(new OnRecyclerItemClickListener(HomeActivity.this, new OnRecyclerItemClickListener.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(View view, int position) {
-                            Toast.makeText(HomeActivity.this, "hai"+position, Toast.LENGTH_SHORT).show();
-                        }
-                    }));*/
                         lvFoodItem.setAdapter(aa);
                     }
-                   /* RecyclerAdapter aa = new RecyclerAdapter(HomeActivity.this,R.layout.card_item,arrayListFoodItem,image);
-                    RecyclerView.LayoutManager mlayoutManager = new LinearLayoutManager(HomeActivity.this);
-                    lvFoodItem.setLayoutManager(mlayoutManager);
-                    *//*
-                      this code for click listener for recycler view.
-                      OnRecyclerItemClickListener is a class with a interface .
-                     *//*
-
-                    *//*lvFoodItem.addOnItemTouchListener(new OnRecyclerItemClickListener(HomeActivity.this, new OnRecyclerItemClickListener.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(View view, int position) {
-                            Toast.makeText(HomeActivity.this, "hai"+position, Toast.LENGTH_SHORT).show();
-                        }
-                    }));*//*
-                    lvFoodItem.setAdapter(aa);*/
                 }
                 @Override
                 public void onFailure(Call<List<RecipeDetails>> call, Throwable t) {

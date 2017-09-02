@@ -49,6 +49,7 @@ public class RecipeActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         arrayListSteps = new ArrayList<>();
 
         Intent i = getIntent();

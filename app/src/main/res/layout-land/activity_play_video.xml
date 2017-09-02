@@ -27,7 +27,7 @@
         android:layout_height="match_parent">
 
    <ImageView
-        android:contentDescription="play previous recipe video"
+        android:contentDescription="@string/play_previous_recipe_video"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:id="@+id/prev"
@@ -37,7 +37,7 @@
        android:layout_alignParentLeft="true"
        android:layout_alignParentStart="true" />
         <ImageView
-            android:contentDescription="play next recipe video"
+            android:contentDescription="@string/play_next_recipe_video"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/next"

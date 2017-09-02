@@ -16,7 +16,6 @@ import com.nenoproject.smokybakers.pojo.StepsPojo;
 import java.util.ArrayList;
 
 public class PlayVideoActivity extends AppCompatActivity implements OnPreparedListener{
-    private String url;
     private VideoView videoView;
     private TextView tvDescribe;
     private ImageView next;
@@ -29,6 +28,7 @@ public class PlayVideoActivity extends AppCompatActivity implements OnPreparedLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_video);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         arrayListSteps  = RecipeActivity.arrayListSteps;
         videoView = (VideoView)findViewById(R.id.video_view);
@@ -88,10 +88,6 @@ public class PlayVideoActivity extends AppCompatActivity implements OnPreparedLi
                     next.setVisibility(View.GONE);
 
                 } else {
-                   // Toast.makeText(PlayVideoActivity.this, "This last video", Toast.LENGTH_SHORT).show();
-
-
-
                     if (arrayListSteps.get(position).getVideoURL().equals("")){
                         videoView.setVisibility(View.GONE);
                         Toast.makeText(PlayVideoActivity.this, "No video available.", Toast.LENGTH_SHORT).show();

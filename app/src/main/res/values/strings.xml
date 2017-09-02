@@ -8,4 +8,7 @@
     <string name="measure">measure</string>
     <string name="ingredient">ingredient</string>
     <string name="sample_test">sample test</string>
+    <string name="play_previous_recipe_video">play previous recipe video</string>
+    <string name="play_next_recipe_video">play next recipe video</string>
+    <string name="food_image">Food image</string>
 </resources>
