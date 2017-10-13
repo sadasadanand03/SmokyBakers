@@ -3,6 +3,8 @@ package com.nenoproject.smokybakers;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import android.support.v7.widget.GridLayoutManager;
@@ -85,4 +87,46 @@ public class HomeActivity extends AppCompatActivity
                 & Configuration.SCREENLAYOUT_SIZE_MASK)
                 >= Configuration.SCREENLAYOUT_SIZE_LARGE;
     }
+
+    // this is demo to set default value at zero position
+/*
+    public ArrayList<DeliveryTypeDetails> getDelivetTypeDtl() {
+        Cursor c = null;
+        ArrayList<DeliveryTypeDetails> b = new ArrayList<DeliveryTypeDetails>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            String query = "select DELIVERY_POINT_CODE,DELIVERY_POINT_DESC from CN_DELIVERY_POINT ";
+            c = db.rawQuery(query, null);
+
+            if (c.getCount() > 0) {
+                DeliveryTypeDetails dtd = new DeliveryTypeDetails();
+                dtd.setName("Select");
+                dtd.setCode("0");
+                b.add(dtd);
+                if (c.moveToFirst())
+                    do {
+
+                        DeliveryTypeDetails iD = new DeliveryTypeDetails();
+
+                        iD.setCode(c.getString(0));
+                        iD.setName(c.getString(1));
+
+                        b.add(iD);
+                    } while (c.moveToNext());
+
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+
+            if (c != null) {
+                c.close();
+            }
+
+        }
+
+        return b;
+    }
+*/
 }
